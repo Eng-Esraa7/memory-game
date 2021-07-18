@@ -1,0 +1,187 @@
+img{
+    width: 180px;
+    height: 180px;
+    margin-top: 5px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Arial, Tahoma, sans-serif;
+    position: relative;
+}
+
+.sucessed, .failed, .timeout{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(3, 169, 244, .7);
+    text-align: center;
+    line-height: 500px;
+    display: none;
+    padding: 50px;
+}
+
+.show{
+    display: block;
+}
+
+.sucessed::after{
+    content: 'Succesed';
+    color: #FFF;
+    font-size: 150px;
+}
+
+.failed::after{
+    content: 'Failed';
+    color: #FFF;
+    font-size: 150px;
+}
+
+.cntgame{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 169, 244, .9);
+}
+
+.cntgame span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    background-color: #f44336;
+    padding: 15px 25px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.info{
+    width: 80%;
+    margin: 20px auto 0;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #2196f3;
+}
+
+.info .name{
+    float: left;
+    width: 33.333%;
+}
+
+.info .tries{
+    float: right;
+    width: 33.333%;
+    text-align: right;
+}
+
+.info .score{
+    float: right;
+    width: 33.3333%;
+    text-align: center;
+}
+
+.info .time{
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.info .try{
+    float: right;
+    width: 50%;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.timeout::after{
+    content: 'Time Out';
+    color: #FFF;
+    font-size: 150px;
+}
+
+.block{
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 20px 125px;
+}
+
+.block .game{
+    height: 200px;
+    width: 200px;
+    transition: transform .5s;
+    transform-style:preserve-3d;
+    cursor: pointer;
+    position: relative;
+    /*flex: 1 0 200px;*/
+    margin: 0 10px 20px;
+}
+
+.block .game .front{
+    background-color: #333;
+    line-height: 200px;
+}
+
+.block .game .front::before{
+    content: '?';
+    color: #FFF;
+    font-size: 140px;
+    font-weight: bold;
+}
+
+.block .game .back{
+    background-color: #607d8b;
+    transform: rotateY(180deg);
+}
+
+.block .game .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+
+.block .game.flipped,.block .match{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+.block.no-clicking{
+    pointer-events: none;
+}
+
+table{
+    border: 1px solid #2196f3;
+    border-collapse: collapse;
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+table tr, td, th{
+    border: 1px solid #2196f3;
+    padding: 7px;
+}
